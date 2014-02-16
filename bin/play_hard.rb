@@ -12,7 +12,8 @@ load ARGV[1]
 win_counts = Hash.new(0)
 player_classes = Battleship::Util.find_player_classes
 
-100.times do |i|
+10_000.times do |i|
+  puts win_counts.inspect if i % 10 == 0
   players = player_classes.map{ |klass| klass.new }
   game = Battleship::Game.new(10, [2, 3, 3, 4, 5], *players)
   game.tick until game.winner
