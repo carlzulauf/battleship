@@ -12,7 +12,7 @@ load ARGV[0]
 
 player_class = Battleship::Util.find_player_classes.first
 
-placements = 1000.times.map{ player_class.new.new_game }
+placements = 100.times.map{ player_class.new.new_game }
 File.open("contestants/lib/bender/game_history.rb", "w") do |file|
   file.write("module Bender\n  def self.game_history\n    [\n")
   placements.each do |board|
